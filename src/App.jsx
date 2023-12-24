@@ -1,18 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import CompanyDescription from './components/CompanyDescription';
-import ServicesPage from './components/ServicesPage';
-import PortfolioPage from './components/PortfolioPage';
-import BlogPage from './components/BlogPage';
-import AboutUsPage from './components/AboutUsPage';
-import ContactPage from './components/ContactPage';
-import TestimonialsPage from './components/TestimonialsPage';
-import FAQPage from './components/FAQPage';
-import CareersPage from './components/CareersPage';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsOfService from './components/TermsOfService';
-import Error404Page from './components/Error404Page';
+import CompanyDescription from './components/pages/CompanyDescription';
+import ServicesPage from './components/pages/ServicesPage';
+import PortfolioPage from './components/pages/PortfolioPage';
+import BlogPage from './components/pages/BlogPage';
+import AboutUsPage from './components/pages/AboutUsPage';
+import ContactPage from './components/pages/ContactPage';
+import TestimonialsPage from './components/pages/TestimonialsPage';
+import FAQPage from './components/pages/FAQPage';
+import CareersPage from './components/pages/CareersPage';
+import PrivacyPolicy from './components/pages/PrivacyPolicy';
+import TermsOfService from './components/pages/TermsOfService';
+import Error404Page from './components/pages/Error404Page';
 
 function App() {
   return (
