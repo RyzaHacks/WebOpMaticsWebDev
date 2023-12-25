@@ -1,31 +1,86 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { FaFacebookSquare, FaInstagram } from 'react-icons/fa'; // Import React Icons
 
 function CompanyDescription() {
-  // Tailwind CSS classes for the background image
-  const backgroundImageStyle = "bg-[url('/bg2.png')] bg-cover bg-no-repeat bg-center";
-
   return (
-    <div className={`${backgroundImageStyle} min-h-screen flex items-center justify-center`}>
-      <div className="w-full max-w-5xl mx-auto p-10 md:py-16 bg-black bg-opacity-75 rounded-xl shadow-xl">
-        <div className="text-center space-y-6">
-          <h2 className="text-5xl font-bold text-indigo-400">
-            Who We Are
-          </h2>
-          <p className="text-xl font-medium text-gray-300">
-            WebOpMatics is at the cutting-edge intersection of web development, hosting, and IT consulting. Our mastery in crafting dynamic web experiences and strategic IT solutions empowers businesses to thrive in the digital era.
-          </p>
-          <div className="border-b border-gray-700 my-6" />
-          <p className="text-lg text-gray-400">
-            With a visionary approach to technology, our team delivers bespoke solutions that resonate with your brand's voice and mission. We excel in building responsive, high-performance websites and providing robust hosting services to ensure your online presence is second to none.
-          </p>
-          <p className="text-lg text-gray-400">
-            Embark on your digital transformation journey with WebOpMatics. Experience seamless integration of technology with unparalleled customer support, propelling your business towards unparalleled success.
-          </p>
-          <a href="/contact" className="mt-10 inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50 transition duration-300">
-            Contact Us
+    <div className="container">
+      <Helmet>
+        <title>Company Description - WebOpMatics</title>
+      </Helmet>
+      <header className="section text-center">
+        <h1 className="text-4xl font-extrabold leading-tight mb-4">
+          Your Partner in Digital Innovation
+        </h1>
+        <p className="text-xl font-medium">
+          WebOpMatics
+        </p>
+      </header>
+
+      <main className="section">
+        <section className="card mb-8">
+          <div className="card-header">
+            Our Mission
+          </div>
+          <div className="card-body">
+            <p className="company-description">
+              Empower businesses with cutting-edge web solutions, IT consulting, and hosting services. We create dynamic web experiences that align with your brand's mission.
+            </p>
+          </div>
+        </section>
+
+        <section className="card mb-8">
+          <div className="card-header">
+            Our Values
+          </div>
+          <div className="card-body">
+            <ul className="company-description list-disc list-inside">
+              <li>
+                Innovation: Leading technological advancements, setting industry trends.
+              </li>
+              <li>
+                Client-Centric: Prioritizing your success, tailoring solutions to your unique needs.
+              </li>
+              <li>
+                Excellence: Committing to delivering the highest quality of work.
+              </li>
+              <li>
+                Transparency: Maintaining trust through open communication.
+              </li>
+              <li>
+                Teamwork: Collaborating to achieve outstanding results.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section className="card">
+          <div className="card-header">
+            About Us
+          </div>
+          <div className="card-body">
+            <p className="company-description">
+              With a visionary approach to technology, we excel in building responsive, high-performance websites and providing robust hosting services. Embark on your digital transformation journey with WebOpMatics.
+            </p>
+            <p className="company-description">
+              Experience seamless technology integration with unparalleled customer support, propelling your business to unparalleled success.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer className="section text-center">
+        <p>&copy; {new Date().getFullYear()} WebOpMatics. All rights reserved.</p>
+        <div className="mt-4">
+          <a href="/contact" className="mr-4">Contact Us</a>
+          <a href="#" className="mr-4">
+            <FaFacebookSquare className="text-2xl inline" />
+          </a>
+          <a href="#">
+            <FaInstagram className="text-2xl inline" />
           </a>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }

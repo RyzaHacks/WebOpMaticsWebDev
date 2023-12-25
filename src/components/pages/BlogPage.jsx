@@ -13,7 +13,9 @@ const BlogPage = () => {
       <Helmet>
         <title>BlogPage - WebOpMatics</title>
       </Helmet>
-      BlogPage
+      BlogPagesaddsa
+      secondary
+      display
     
     
     </div>

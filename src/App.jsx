@@ -1,6 +1,8 @@
+// webopmatics\src\App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import Navbar from './components/common/Navbar'; // Import Navbar here
 import CompanyDescription from './components/pages/CompanyDescription';
 import ServicesPage from './components/pages/ServicesPage';
 import PortfolioPage from './components/pages/PortfolioPage';
@@ -13,13 +15,16 @@ import CareersPage from './components/pages/CareersPage';
 import PrivacyPolicy from './components/pages/PrivacyPolicy';
 import TermsOfService from './components/pages/TermsOfService';
 import Error404Page from './components/pages/Error404Page';
+import HomePage from './components/pages/HomePage';
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
+        <Navbar /> {/* Navbar is placed here so it's included on every page */}
         <Routes>
-          <Route path="/" element={<CompanyDescription />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/company" element={<CompanyDescription />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/portfolio" element={<PortfolioPage />} />
           <Route path="/blog" element={<BlogPage />} />
