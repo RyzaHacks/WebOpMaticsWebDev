@@ -1,147 +1,208 @@
+/*webopmatics\src\index.css*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Global Custom Properties */
 :root {
-  --main-text-opacity: 0.85;
+  --main-text-opacity: 0.9; /* Adjusted text opacity for better readability */
 }
 
+/* Basic Setup */
+/* Enables smooth scrolling for anchor links */
 html {
   scroll-behavior: smooth;
 }
 
+/* Default body styling */
 body {
-  @apply font-sans bg-primary-50 text-primary-900;
-  line-height: 1.6;
+  @apply font-sans bg-primary-50 text-primary-900; /* Base font and color setup */
+  line-height: 1.6; /* Line height for improved text readability */
 }
 
+/* Typography Styles */
+/* Headings */
 h1 {
-  @apply text-4xl font-bold;
+  @apply text-5xl font-bold text-gray-900; /* Largest heading size */
 }
 
 h2 {
-  @apply text-2xl font-semibold;
+  @apply text-4xl font-bold text-gray-800; /* Second largest heading size */
 }
 
 h3 {
-  @apply text-xl font-semibold;
+  @apply text-3xl font-semibold text-gray-700; /* Medium heading size */
 }
 
+h4 {
+  @apply text-2xl font-medium text-gray-600; /* Smallest heading size */
+}
+
+/* Paragraphs */
 p {
-  @apply text-base;
+  @apply text-base text-gray-600; /* Base text size and color for paragraphs */
 }
 
+/* Links */
 a {
-  @apply text-blue-500 no-underline;
+  @apply text-blue-500 hover:text-blue-700 transition-colors; /* Link color with hover state */
 }
 
-a:hover {
-  @apply underline;
+/* Button Styles */
+.button-base {
+  @apply font-semibold py-2 px-4 rounded transition-all duration-300 ease-in-out; /* Base button styling */
 }
 
-button {
-  @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 ease-in-out shadow-md no-underline;
+.btn-primary {
+  @apply button-base bg-blue-600 hover:bg-blue-700 text-white shadow-md; /* Primary button styling */
 }
 
-button:hover {
-  @apply bg-gradient-to-r from-primary-600 to-primary-700 shadow-lg -translate-y-1;
+.btn-secondary {
+  @apply button-base bg-green-500 hover:bg-green-600 text-white shadow-md; /* Secondary button styling */
 }
 
+/* Navbar Styles */
+.brand-logo {
+  @apply text-3xl font-bold text-secondary-500 relative; /* Brand logo styling with text shadow for depth */
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.nav-link {
+  @apply text-lg text-white relative transition-all duration-300; /* Navigation link styling */
+  position: relative; /* For pseudo-element positioning */
+}
+
+.nav-link::before {
+  content: '';
+  @apply absolute inset-0 bg-secondary-500 rounded opacity-0 transition-opacity; /* Pseudo-element for hover effect */
+  z-index: -1;
+}
+
+.nav-link:hover::before {
+  @apply opacity-25; /* Hover state for navigation link */
+}
+
+.nav-link:hover {
+  transform: translateY(-2px); /* Subtle movement on hover */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Text shadow for hover state */
+}
+
+/* Container & Section Styles */
 .container {
-  @apply mx-auto px-4;
+  @apply max-w-7xl mx-auto px-4; /* Max width for content container */
 }
 
 .section {
-  @apply py-12;
+  @apply py-12; /* Padding for section spacing */
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-@layer utilities {
-  .animate-fadeInUp {
-    animation-name: fadeInUp;
-    animation-duration: 1s;
-    animation-fill-mode: both;
-  }
-  .navbar-link {
-    @apply text-white hover:text-primary-400 transition-colors;
-  }
-}
-
+/* Hero Section */
 .hero {
-  @apply min-h-[75vh];
+  @apply min-h-[75vh] flex items-center justify-center bg-cover bg-center bg-no-repeat; /* Full-screen hero section styling */
 }
 
-.feature {
-  @apply grid grid-cols-2 gap-8;
+.hero::before {
+  @apply absolute inset-0 bg-black opacity-60;
+  content: '';
+  z-index: -1;
 }
 
-.card {
-  @apply bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out;
+.hero h1 {
+  @apply text-6xl md:text-7xl font-extrabold leading-tight text-white;
 }
 
-.card-header {
-  @apply bg-primary-700 text-white text-xl font-semibold p-4;
+.hero h2 {
+  @apply text-3xl md:text-5xl text-blue-300;
 }
 
-.card-body {
-  @apply p-6;
+.hero p {
+  @apply text-lg md:text-xl text-white;
 }
 
-.mirror-x {
-  @apply scale-x-[-1];
-}
-
-.green-button {
-  @apply bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 ease-in-out shadow-md no-underline;
-}
-
-.green-button:hover {
-  @apply shadow-lg -translate-y-1;
-}
-
-.blue-button {
-  @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition-all duration-300 ease-in-out shadow-md no-underline;
-}
-
-.blue-button:hover {
-  @apply shadow-lg -translate-y-1;
-}
-
-@layer components {
-  .custom-navbar {
-    @apply bg-primary-900 text-white px-4 py-3 fixed w-full z-10 shadow-md;
-  }
-  .custom-navbar-link {
-    @apply text-white hover:text-primary-500 transition-colors px-3 py-2 rounded-md text-sm font-medium;
-  }
-  .custom-navbar-brand {
-    @apply text-xl font-bold;
-  }
-}
-
-/* New Styles */
+/* Service Card Styles */
 .service-card {
-  @apply bg-white dark:bg-gray-800 rounded shadow-lg hover:shadow-2xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110;
+  @apply bg-white rounded-lg overflow-hidden shadow-md transition duration-500 ease-in-out; /* Base card styling */
+}
+
+.service-card:hover {
+  @apply scale-105 shadow-lg; /* Hover effect for cards */
 }
 
 .service-card-title {
-  @apply text-xl font-bold mb-2 text-purple-600 dark:text-purple-300;
+  @apply text-xl font-semibold mb-2 text-gray-700; /* Title styling for service cards */
 }
 
 .service-card-description {
-  @apply text-gray-700 dark:text-gray-300;
+  @apply text-gray-500; /* Description styling for service cards */
 }
 
-.company-description {
-  @apply text-lg text-gray-700 mb-8;
+/* Footer Styles */
+footer {
+  @apply bg-gray-800 text-white text-center py-6; /* Footer background and text styling */
+}
+
+/* Testimonial Styles */
+.testimonial {
+  @apply bg-gray-900 text-white p-8 rounded-lg shadow-lg; /* Testimonial box styling */
+}
+
+/* Custom Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in forwards; /* Fade-in animation for elements */
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 640px) {
+  .navbar-link {
+    @apply text-base; /* Adjust navbar link size at 640px breakpoint */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero {
+    @apply text-left; /* Align hero text to the left at 768px breakpoint */
+  }
+}
+
+/* Sticky Navbar */
+/* Navbar with a semi-transparent background and shadow */
+/* Tailwind CSS adjustments for a more professional navbar */
+/* Navbar with a modern gradient background */
+.navbar {
+  @apply sticky top-0 z-50 bg-gradient-to-r from-primary-900 to-primary-950 text-white shadow-lg;
+}
+
+/* Clear and legible typography for brand and links */
+.brand-logo {
+  @apply text-white text-3xl font-bold;
+}
+
+.nav-link {
+  @apply text-lg px-4 py-3 hover:bg-primary-700 transition-colors duration-300 ease-in-out;
+}
+
+/* Underline for the active navigation link */
+.nav-link-active {
+  @apply font-semibold border-b-4 border-secondary-500;
+}
+
+/* Subtle hover effect for links */
+.nav-link:hover {
+  @apply transform scale-105;
+}
+.nav-link:hover {
+  @apply underline;
+}
+/* Interactive Buttons */
+.btn-primary:hover, .btn-secondary:hover {
+  @apply bg-opacity-90 transform -translate-y-1;
+}
+
+.btn-primary:disabled, .btn-secondary:disabled {
+  @apply bg-gray-400 cursor-not-allowed;
 }

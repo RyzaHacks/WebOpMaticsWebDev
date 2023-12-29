@@ -1,36 +1,43 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaBuilding, FaQuestion, FaBriefcase, FaServicestack } from 'react-icons/fa';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const location = useLocation();
 
+  // Function to determine active link class
+  const getNavLinkClass = (path) => {
+    return location.pathname === path
+      ? 'nav-link font-semibold border-b-4 border-secondary-500' // Active link class
+      : 'nav-link';
+  };
+
+  // Navigation links data
+  const navLinks = [
+    { name: 'Company', path: '/company' },
+    { name: 'Services', path: '/services' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Careers', path: '/careers' },
+  ];
+
   return (
-    <nav className="py-4 font-body" style={{ background: 'linear-gradient(to right, #1A202C, #2D3748)' }}>
+    <nav className="navbar">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-3xl font-extrabold flex items-center" style={{ color: '#FFFFFF' }}>
-          <FaHome className="mr-2" /> WebOpMatics
-        </Link>
-        <div className="flex space-x-10">
-          <NavLink to="/company" isActive={location.pathname === '/company'}><FaBuilding className="mr-2" /> Company</NavLink>
-          <NavLink to="/services" isActive={location.pathname === '/services'}><FaServicestack className="mr-2" /> Services</NavLink>
-          <NavLink to="/faq" isActive={location.pathname === '/faq'}><FaQuestion className="mr-2" /> FAQ</NavLink>
-          <NavLink to="/careers" isActive={location.pathname === '/careers'}><FaBriefcase className="mr-2" /> Careers</NavLink>
+        <NavLink to="/" className="brand-logo">
+          WebOpMatics
+        </NavLink>
+        <div className="flex">
+          {navLinks.map((link) => (
+            <NavLink
+              to={link.path}
+              className={getNavLinkClass(link.path)}
+              key={link.name}
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </div>
       </div>
     </nav>
-  );
-};
-
-const NavLink = ({ to, children, isActive }) => {
-  return (
-    <Link
-      to={to}
-      className={`text-lg transition-colors flex items-center ${isActive ? 'text-accent' : 'text-white'}`}
-      style={{ color: isActive ? '#FF6347' : '#FFFFFF' }}
-    >
-      {children}
-    </Link>
   );
 };
 
