@@ -5,7 +5,7 @@ import ServicesSection from './ServicesSection';
 import TestimonialSlider from './TestimonialSlider';
 import CTASection from './CTASection';
 import Footer from './Footer';
-import servicesData from '../data/servicesData'; // assuming services data is stored here
+import servicesData from '../data/servicesData'; // Assuming services data is stored here
 
 const HomePage = () => {
   return (
@@ -16,10 +16,11 @@ const HomePage = () => {
       <main>
         <HeroSection />
         <ServicesSection services={servicesData} />
-        <TestimonialSlider />
         <CTASection />
-        <Footer />
       </main>
+      <TestimonialSlider />
+
+      <Footer />
     </div>
   );
 };

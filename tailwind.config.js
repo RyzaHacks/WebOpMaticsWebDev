@@ -1,4 +1,3 @@
-//webopmatics\tailwind.config.js
 const colors = require('tailwindcss/colors');
 const plugin = require('tailwindcss/plugin');
 
@@ -28,13 +27,10 @@ module.exports = {
       },
       spacing: {
         '4.5': '1.125rem', // Example for new spacing value
-        // Define more as needed, consider removing overly large spacings
       },
       fontSize: {
-        // Provide responsive font sizes
         '5xl': ['2.25rem', { lineHeight: '1', letterSpacing: '-0.05em' }],
         '6xl': ['3rem', { lineHeight: '1', letterSpacing: '-0.05em' }],
-        // Include responsive variants for larger sizes
       },
       boxShadow: {
         'custom-light': '0 2px 4px rgba(0, 0, 0, 0.05)',
@@ -43,8 +39,7 @@ module.exports = {
       },
       container: {
         center: true,
-        padding: '2rem', // Add padding to container by default
-        // Include sizes to control maximum width of the container
+        padding: '2rem',
         screens: {
           sm: '100%',
           md: '100%',
@@ -54,10 +49,12 @@ module.exports = {
       },
       gradientColorStops: theme => ({
         ...theme('colors'),
-        'primary-gradient-start': colors.blueGray[700],
-        'primary-gradient-end': colors.blueGray[900],
-        'secondary-gradient-start': colors.cyan[400],
-        'secondary-gradient-end': colors.cyan[600],
+        // Define your custom gradients
+        'primary-gradient-start': '#c084fc', // Your custom start color
+        'primary-gradient-end': '#f472b6', // Your custom end color
+        'secondary-gradient-start': '#3b82f6', // Another custom start color
+        'secondary-gradient-end': '#c084fc', // Another custom end color
+        // You can continue to use or override the blueGray and cyan gradients as needed
       }),
       animation: {
         'spin-slow': 'spin 3s linear infinite',

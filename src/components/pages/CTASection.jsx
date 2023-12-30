@@ -14,14 +14,29 @@ const CTASection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center text-white py-16">
-        <h2 className="text-4xl font-bold mb-4">Embark On Your Success Story</h2>
-        <p className="text-lg text-white mb-8">
+        <motion.h2
+          className="text-4xl font-bold mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Embark On Your Success Story
+        </motion.h2>
+        <motion.p
+          className="text-lg text-white mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
           Are you ready to transform your digital strategy? Connect with us and let's create something extraordinary together.
-        </p>
+        </motion.p>
         <motion.button
           className="bg-secondary-500 hover:bg-secondary-600 text-white font-medium py-2 px-4 shadow-md hover:shadow-lg transition-all duration-300 ease-in-out rounded-lg"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.4 }}
         >
           Get In Touch
         </motion.button>

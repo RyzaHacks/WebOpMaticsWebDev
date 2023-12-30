@@ -36,21 +36,21 @@ const Slides = () => {
 
   const slideContainerStyle = {
     position: 'relative',
-    maxWidth: '1000px', // Adjust the width as needed
+    maxWidth: '1000px',
     margin: 'auto',
     overflow: 'hidden',
     borderRadius: '8px',
     boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.2)',
   };
-
+  
   const slideStyle = {
     display: 'flex',
     transition: 'transform 0.5s ease',
     transform: `translateX(-${currentSlide * 100}%)`,
   };
-
+  
   const slideItemStyle = {
-    flex: '0 0 100%', // Ensure each slide takes full width
+    flex: '0 0 100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -59,6 +59,9 @@ const Slides = () => {
     color: 'white',
     padding: '20px',
     boxSizing: 'border-box',
+    borderRadius: '8px', // Added border radius for a rounded look
+    margin: '0 10px', // Added margin to create spacing between testimonials
+    textAlign: 'center', // Center-align text
   };
 
   const nameStyle = {
