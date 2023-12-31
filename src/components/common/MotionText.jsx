@@ -1,27 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const defaultVariants = {
+const textVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: (custom) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 1, delay: custom.delay },
+    transition: {
+      duration: 0.8, // Reduced duration for smoother animation
+      delay: custom.delay,
+      ease: 'easeOut', // Added easing for a smoother transition
+    },
   }),
 };
 
-const MotionText = ({ tag: Tag, size, weight, leading, children, delay }) => {
+const AnimatedText = ({ tag: Tag, className, delay, children }) => {
   return (
     <motion.div
       initial="hidden"
       animate="visible"
       custom={{ delay }}
-      variants={defaultVariants}
-      className={`${size} ${weight} ${leading} text-gray-900`}
+      variants={textVariants}
+      className={`text-gray-900 ${className}`}
     >
       <Tag>{children}</Tag>
     </motion.div>
   );
 };
 
-export default MotionText;
+export default AnimatedText;
