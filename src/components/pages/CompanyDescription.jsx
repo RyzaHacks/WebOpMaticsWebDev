@@ -31,29 +31,41 @@ const CompanyDescription = () => {
   ];
 
   const pageStyles = {
-    backgroundColor: '#0f172a', // A deep blue background for the whole page
+    backgroundColor: '#0f172a',
     minHeight: '100vh',
     display: 'flex',
     flexDirection: 'column',
-    color: 'white', // Ensuring all text is white for contrast
+    color: 'white',
+    position: 'relative',
+  };
+
+  const contentStyles = {
+    zIndex: '1', // Ensure content is above the gradient shapes
   };
 
   return (
     <div style={pageStyles}>
+      {/* Gradient Shape Layers */}
+      <div className="absolute inset-0 bg-gradient-to-b from-green-400 via-green-300 to-blue-500 rounded-lg transform -rotate-12 scale-105 opacity-50 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-yellow-300 via-yellow-200 to-red-500 rounded-lg transform rotate-12 scale-105 opacity-50 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-pink-400 via-pink-300 to-purple-600 rounded-lg transform -rotate-12 scale-105 opacity-50 z-0"></div>
+
       <Helmet>
         <title>Company Description - WebOpMatics</title>
       </Helmet>
-      <Mission />
-      <Values values={values} />
-      <Footer />
+      <div style={contentStyles}> {/* Wrap your content with this div */}
+        <Mission />
+        <Values values={values} />
+        <Footer />
+      </div>
     </div>
   );
 };
 
 const Values = ({ values }) => {
   const sectionStyles = {
-    padding: '4rem 0', // More padding for each section
-    backgroundColor: '#1e293b', // Dark background for section
+    padding: '4rem 0',
+    backgroundColor: '#1e293b',
   };
 
   return (
@@ -72,13 +84,13 @@ const Values = ({ values }) => {
 
 const ValueCard = ({ title, description }) => {
   const cardStyles = {
-    backgroundColor: 'white', // White background for cards
-    color: '#334155', // Dark text for contrast
-    borderRadius: '0.5rem', // Rounded corners
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)', // Soft shadow for depth
-    padding: '2rem', // Padding inside cards
-    transition: 'transform 0.3s ease-in-out', // Smooth transition for hover effect
-    cursor: 'pointer', // Cursor effect to indicate it's clickable
+    backgroundColor: 'white',
+    color: '#334155',
+    borderRadius: '0.5rem',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+    padding: '2rem',
+    transition: 'transform 0.3s ease-in-out',
+    cursor: 'pointer',
     textAlign: 'center',
   };
 
@@ -99,9 +111,9 @@ const ValueCard = ({ title, description }) => {
 
 const Mission = () => {
   const missionStyles = {
-    backgroundColor: '#1e293b', // Consistent background with the values section
-    padding: '4rem 0', // More padding for a spacious feel
-    color: 'white', // White text for readability
+    backgroundColor: '#1e293b',
+    padding: '4rem 0',
+    color: 'white',
     textAlign: 'center',
   };
 
@@ -120,16 +132,16 @@ const Mission = () => {
 
 const CallToAction = () => {
   const buttonStyle = {
-    backgroundColor: '#2563eb', // Blue button color
-    padding: '0.75rem 1.5rem', // Padding for button
-    borderRadius: '0.375rem', // Rounded corners for button
-    color: 'white', // White text for button
-    fontWeight: 'bold', // Bold text for button
-    fontSize: '1rem', // Font size for button
-    display: 'inline-block', // Inline-block for proper spacing
-    marginTop: '2rem', // Margin top for spacing from text
-    textDecoration: 'none', // Remove underline from link
-    transition: 'all 0.3s ease-in-out', // Smooth transition for hover effects
+    backgroundColor: '#2563eb',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '0.375rem',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: '1rem',
+    display: 'inline-block',
+    marginTop: '2rem',
+    textDecoration: 'none',
+    transition: 'all 0.3s ease-in-out',
   };
 
   return (
@@ -146,10 +158,10 @@ const CallToAction = () => {
 
 const Footer = () => {
   const footerStyles = {
-    backgroundColor: '#162447', // Dark footer to match the page style
-    color: '#64748b', // Lighter text for contrast
-    padding: '1.5rem 0', // Padding for footer
-    textAlign: 'center', // Center text for footer
+    backgroundColor: '#162447',
+    color: '#64748b',
+    padding: '1.5rem 0',
+    textAlign: 'center',
   };
 
   return (

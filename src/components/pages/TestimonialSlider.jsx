@@ -1,3 +1,4 @@
+//webopmatics\src\components\pages\TestimonialSlider.jsx
 import React from 'react';
 import Slides from './Slides';
 
